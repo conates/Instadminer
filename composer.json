@@ -20,6 +20,9 @@
         "cosenary/instagram": "~2.3",
         "redbeanphp": "4.1.*"
     },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    },
     "license": "MIT",
     "autoload": {
         "files": [
