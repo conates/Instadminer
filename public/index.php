@@ -29,3 +29,9 @@ $JSON = function() use ($app){
         $app->response->headers['Content-Type']="text/json";
     };
 };
+
+
+
+$app->get('/',function() use ($app){
+    $app->render('index.php');
+});
