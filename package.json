@@ -1,0 +1,19 @@
+{
+  "name": "Instagram-Slim-RedBeadn-Boostrap-Admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conates/Instagram-Slim-RedBeadn-Boostrap-Admin.git"
+  },
+  "author": "Claudio Oñate",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/conates/Instagram-Slim-RedBeadn-Boostrap-Admin/issues"
+  },
+  "homepage": "https://github.com/conates/Instagram-Slim-RedBeadn-Boostrap-Admin"
+}
