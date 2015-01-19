@@ -8,7 +8,7 @@ switch($_SERVER['SERVER_NAME']){
         $env = "development";
     break;
 
-    case "http://instadminer.herokuapp.com/":
+    case "instadminer.herokuapp.com":
         $env = "staging";
     break;
 
