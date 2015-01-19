@@ -32,7 +32,7 @@ $app->configureMode('staging', function () use ($app,&$config) {
     define('TEMPLATE_URL','http://instadminer.herokuapp.com/templates_dev/');
     
     R::setup('mysql:host=us-cdbr-iron-east-01.cleardb.net;dbname=heroku_3d45180fdace15e','b059defdf3783a','2c3571e7');
-    R::freeze( FALSE );
+    R::freeze( TRUE );
 
 });
 

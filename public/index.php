@@ -32,9 +32,9 @@ $JSON = function() use ($app){
 };
 
 
-
+    die("<pre>".print_r($env,1)."</pre>");
 $app->get('/',function() use ($app){
-        die("<pre>".print_r($app,1)."</pre>");
+
     $app->render('index.php',array("url"=>SITE_URL));
 });
 
