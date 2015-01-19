@@ -1,5 +1,5 @@
 {
-  "name": "Instagram-Slim-RedBeadn-Boostrap-Admin",
+  "name": "Instadminer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/conates/Instagram-Slim-RedBeadn-Boostrap-Admin.git"
+    "url": "git@github.com:conates/Instadminer.git.git"
   },
   "author": "Claudio Oñate",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/conates/Instagram-Slim-RedBeadn-Boostrap-Admin/issues"
+    "url": "git@github.com:conates/Instadminer.git/issues"
   },
-  "homepage": "https://github.com/conates/Instagram-Slim-RedBeadn-Boostrap-Admin"
+  "homepage": "git@github.com:conates/Instadminer.git"
 }
