@@ -16,7 +16,6 @@
 
     ],
     "require": {
-        "heroku/heroku-buildpack-php": "*",
         "slim/slim": "~2.5",
         "cosenary/instagram": "~2.3",
         "redbeanphp": "4.1.*",
