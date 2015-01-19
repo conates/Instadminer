@@ -1,5 +1,6 @@
 <?php
 use MetzWeb\Instagram\Instagram;
+use \Slim\Extras\Middleware\HttpBasicAuth;
 $config = array();
 
 
@@ -15,6 +16,9 @@ $app->configureMode('development', function () use ($app,&$config) {
     
     R::setup('mysql:host=localhost;dbname=instadminer','root','');
     R::freeze( FALSE );
+    $app->username="admin";
+    $app->password="admin";
+    $app->add(new HttpBasicAuth('admin', 'admin'));
 
 });
 
@@ -45,4 +49,16 @@ $config['instagram'] = array(
 );
 
 $instagram = new Instagram($config['instagram']);
+
+
+$config = array(
+    'provider' => 'PDO',
+    'pdo' => new PDO('mysql:host=localhost;dbname=instadminer', 'root', ''),
+    'auth.type' => 'form',
+    'login.url' => '/',
+    'security.urls' => array(
+        array('path' => '/logueado'),
+        array('path' => '/about/.+'),
+    ),
+);
 ?>

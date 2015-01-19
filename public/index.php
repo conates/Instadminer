@@ -31,10 +31,10 @@ $JSON = function() use ($app){
     };
 };
 
-
-    die("<pre>".print_r($env,1)."</pre>");
 $app->get('/',function() use ($app){
-
+    $app->render('login.html');
+});
+$app->get('/admin',function() use ($app){
     $app->render('index.php',array("url"=>SITE_URL));
 });
 
