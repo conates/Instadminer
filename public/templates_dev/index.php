@@ -63,6 +63,7 @@
             <li class="active"><a href="#">Estadísticas <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Agregar</a></li>
             <li><a href="#">Borrar</a></li>
+            <li><a href="#">Ocultar</a></li>
             <li><a href="#">Exportar</a></li>
           </ul>
         </div>

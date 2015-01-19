@@ -34,7 +34,7 @@ $JSON = function() use ($app){
 
 
 $app->get('/',function() use ($app){
-    $app->render('index.php');
+    $app->render('index.php',array("url"=>SITE_URL));
 });
 
 
