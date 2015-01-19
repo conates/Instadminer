@@ -20,16 +20,6 @@ $app->configureMode('development', function () use ($app,&$config) {
 
 
 
-$config['instagram'] = array(
-    'apiKey' => 'dbfd0aa026884631ba8905dc17614f32',
-    'apiSecret' => '50fd3b279a214c1e901286290c58ffb8',
-    'apiCallback' => SITE_URL.'success' // must point to success.php
-);
-
-$instagram = new Instagram($config['instagram']);
-
-
-
 
 $app->configureMode('staging', function () use ($app,&$config) {
     $app->config(array(
@@ -55,6 +45,4 @@ $config['instagram'] = array(
 );
 
 $instagram = new Instagram($config['instagram']);
-?>
-
 ?>

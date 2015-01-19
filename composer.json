@@ -1,5 +1,5 @@
 {
-    "name": "MEAT Dev3/instagram-slim-red-beadn-boostrap-admin",
+    "name": "Conates Instadminer",
     "description": "Administrador de elementos para instagram",
     "repositories": [
         {
@@ -22,6 +22,11 @@
         "tuupola/slim-basic-auth": "0.8.*"
     },
     "license": "MIT",
+    "autoload": {
+        "files": [
+            "vendor/redbeanphp/rb.php"
+        ]
+    },
     "authors": [
         {
             "name": "conates",
