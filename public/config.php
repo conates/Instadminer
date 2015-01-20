@@ -50,15 +50,4 @@ $config['instagram'] = array(
 
 $instagram = new Instagram($config['instagram']);
 
-
-$config = array(
-    'provider' => 'PDO',
-    'pdo' => new PDO('mysql:host=localhost;dbname=instadminer', 'root', ''),
-    'auth.type' => 'form',
-    'login.url' => '/',
-    'security.urls' => array(
-        array('path' => '/logueado'),
-        array('path' => '/about/.+'),
-    ),
-);
 ?>
