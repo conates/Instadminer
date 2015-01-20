@@ -98,6 +98,8 @@ body {
 }
 .placeholder {
   margin-bottom: 20px;
+  height: 450px;
+  overflow: hidden;
 }
 .placeholder img {
   display: inline-block;

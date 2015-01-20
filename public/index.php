@@ -31,11 +31,52 @@ $JSON = function() use ($app){
     };
 };
 
+$authenticateForRole = function ( $role = 'member' ) {
+    return function () use ( $role ) {
+        /*$user = User::fetchFromDatabaseSomehow();
+        if ( $user->belongsToRole($role) === false ) {
+            $app = \Slim\Slim::getInstance();
+            $app->flash('error', 'Login required');
+            $app->redirect('/login');
+        }*/
+    };
+};
+
+
+
+
+
 $app->get('/',function() use ($app){
     $app->render('login.html');
 });
+
 $app->get('/admin',function() use ($app){
-    $app->render('index.php',array("url"=>SITE_URL));
+    $app->render('index.php');
+});
+
+
+$app->get('/admin/add',function() use ($app){
+    $app->render('add.php');
+});
+
+$app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
+        $search = $app->request->get('search');
+        $data = getDataInstagram($instagram,$search);
+        echo json_encode($data);
+});
+
+
+$app->get('/admin/delete',function() use ($app){
+    $app->render('index.php');
+});
+
+$app->get('/admin/hide',function() use ($app){
+    $app->render('index.php');
+});
+
+
+$app->get('/admin/export',function() use ($app){
+    $app->render('index.php');
 });
 
 

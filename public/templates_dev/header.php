@@ -28,7 +28,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body data-site-url="<?php echo SITE_URL ?>">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -43,13 +43,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Estadísticas</a></li>
+            <li><a href="<?php echo SITE_URL ?>admin">Estadísticas</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+          <form id="search" class="navbar-form navbar-right">
+            <input type="text" class="form-control" name="search" placeholder="Search...">
           </form>
         </div>
       </div>
@@ -59,29 +59,10 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Estadísticas <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Agregar</a></li>
-            <li><a href="#">Borrar</a></li>
-            <li><a href="#">Ocultar</a></li>
-            <li><a href="#">Exportar</a></li>
+            <li class="active"><a href="<?php echo SITE_URL ?>admin">Estadísticas <span class="sr-only">(current)</span></a></li>
+            <li><a href="<?php echo SITE_URL ?>admin/add">Agregar</a></li>
+            <li><a href="<?php echo SITE_URL ?>admin/delete">Borrar</a></li>
+            <li><a href="<?php echo SITE_URL ?>admin/hide">Ocultar</a></li>
+            <li><a href="<?php echo SITE_URL ?>admin/export">Exportar</a></li>
           </ul>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Login</h1>
-
-          <div class="row placeholders">
-            login
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
