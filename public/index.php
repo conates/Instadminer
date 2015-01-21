@@ -65,6 +65,11 @@ $app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
         echo json_encode($data);
 });
 
+$app->get('/admin/get-data-instagram-by-id/:id',$JSON,function($id) use ($app,$instagram){
+        $data = getDataInstagramById($instagram,$id);
+        echo json_encode($data);
+});
+
 
 $app->get('/admin/delete',function() use ($app){
     $app->render('index.php');

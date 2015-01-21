@@ -19,7 +19,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="<?php echo TEMPLATE_URL ?>css/dashboard.css" rel="stylesheet">
+    <link href="<?php echo TEMPLATE_URL ?>css/min/styles.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

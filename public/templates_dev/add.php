@@ -3,26 +3,10 @@
           <h1 class="page-header">Estadísticas</h1>
 
           <div class="row placeholders object_instagram">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="http://placehold.it/300x350" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="http://placehold.it/300x350" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="http://placehold.it/300x350" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="http://placehold.it/300x350" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+            <div class="col-xs-12 col-sm-6 placeholder">
+              <h4>Busca algún termino o hashtag</h4>
             </div>
           </div>
+          <div class="row placelders hide get-more"><a class="btn btn-success add-btn" href="#" role="button">Ver más</a></div>
         </div>
 <?php include 'footer.php'; ?>
