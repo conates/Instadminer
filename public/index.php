@@ -51,7 +51,13 @@ $app->get('/',function() use ($app){
 });
 
 $app->get('/admin',function() use ($app){
-    $app->render('index.php');
+
+    $last_four = getData(4);
+    $all_data = getData();
+    $app->render('index.php',array(
+        'last_four'=>$last_four,
+        'all_data'=>$all_data)
+    );
 });
 
 

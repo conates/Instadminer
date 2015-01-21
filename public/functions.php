@@ -1,7 +1,11 @@
 <?php 
 require 'config.php';
 
-
+	function getData($limit = 10)
+	{
+		$data = R::find('instagram','ORDER BY created_time DESC limit :limit',['limit'=> $limit]);
+		return R::exportAll($data);
+	}
 
 	function getDataInstagram($instagram,$tag)
 	{
