@@ -91,7 +91,7 @@
 				return false;
 			});
 		},
-		hideData : function(element)
+		hideData : function(element) 
 		{
 			var id = element.attr('data-id');
 			$.ajax({
@@ -125,7 +125,7 @@
 							html += '<a data-id="'+object.id+'" class="btn btn-success add-btn" href="http://google.cl" role="button">Agregar</a>';
 							html += '<img src="'+object.images.low_resolution.url+'" class="img-responsive" alt="Generic placeholder thumbnail">';
 							html += '<h4>'+object.user.username+'</h4>';
-							if (object.caption != null)
+							if (object.caption !== null)
 								html += '<span class="text-muted">'+object.caption.text+'</span>';
 						html += '</div>';
 					});
@@ -180,7 +180,7 @@
 					dataType: 'json',
 				})
 				.done(function(data) {
-					app.contentInstagram(data);
+					app.contentInstagram($.parseJSON(data));
 				})
 				.fail(function() {
 					app.flashMessages('warning','Ha ocurrido un error en traer la data de instagram.');
