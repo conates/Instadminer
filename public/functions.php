@@ -7,6 +7,13 @@ require 'config.php';
 		return R::exportAll($data);
 	}
 
+	function deleteData($id)
+	{
+		$data = R::load('instagram',$id); //Retrieve
+		return R::trash($data);
+
+	}
+
 	function getDataInstagram($instagram,$tag)
 	{
 		$data = $instagram->getTagMedia($tag);

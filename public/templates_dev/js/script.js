@@ -42,8 +42,9 @@
 		{
 			var id = element.attr('data-id');
 			$.ajax({
-				url: SITE_URL+'admin/get-data-instagram-by-id',
+				url: SITE_URL+'admin/add',
 				dataType: 'json',
+				type: 'POST',
 				data: {id: id},
 			})
 			.done(function() {
@@ -59,6 +60,7 @@
 			$.ajax({
 				url: SITE_URL+'admin/delete',
 				dataType: 'json',
+				type: 'POST',
 				data: {id: id},
 			})
 			.done(function(result) {

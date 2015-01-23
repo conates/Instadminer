@@ -65,8 +65,9 @@ $app->get('/admin/add',function() use ($app){
     $app->render('add.php');
 });
 
-$app->get('/admin/delete',function() use ($app){
-    $id = $app->request->get('id');
+$app->post('/admin/delete',function() use ($app){
+    $id = $app->request->post('id');
+    $data = deleteData($id);
     echo json_encode(true);
 });
 
@@ -76,8 +77,8 @@ $app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
         echo json_encode($data);
 });
 
-$app->get('/admin/get-data-instagram-by-id/',$JSON,function() use ($app,$instagram){
-        $id = $app->request->get('id');
+$app->post('/admin/add',$JSON,function() use ($app,$instagram){
+        $id = $app->request->post('id');
         $data = getDataInstagramById($instagram,$id);
         echo json_encode($data);
 });
