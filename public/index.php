@@ -72,6 +72,11 @@ $app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
         echo json_encode($data);
 });
 
+$app->get('/admin/more-data-instagram',$JSON,function() use ($app,$instagram){
+    $content = file_get_contents($app->request->get('url'));
+    echo $content;
+});
+
 $app->post('/admin/add-data',$JSON,function() use ($app,$instagram){
         $id = $app->request->post('id');
         $data = getDataInstagramById($instagram,$id);

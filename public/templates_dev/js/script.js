@@ -19,10 +19,12 @@
 					data: formData,
 				})
 				.done(function(data) {
+					$('.object_instagram').empty();
 					app.contentInstagram(data);
 					
 					app.event.addBtn();
 					app.event.getMoreBtnInstagram();
+
 
 				})
 				.fail(function(data) {
@@ -129,7 +131,7 @@
 								html += '<span class="text-muted">'+object.caption.text+'</span>';
 						html += '</div>';
 					});
-					$('.object_instagram').empty().prepend(html);
+					$('.object_instagram').append(html);
 					$('.get-more').removeClass('hide').find('a').attr('last-url', data.pagination.next_url);
 		}
 	};
@@ -176,15 +178,17 @@
 				event.preventDefault();
 				var element = $(this);
 				$.ajax({
-					url: element.attr('last-url'),
+					url: SITE_URL+'admin/more-data-instagram',
 					dataType: 'json',
+					data: {url: element.attr('last-url')},
 				})
 				.done(function(data) {
-					app.contentInstagram($.parseJSON(data));
+					app.contentInstagram(data);
 				})
 				.fail(function() {
 					app.flashMessages('warning','Ha ocurrido un error en traer la data de instagram.');
 				});
+				
 				
 			});
 		}
