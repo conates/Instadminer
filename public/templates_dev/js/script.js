@@ -3,6 +3,7 @@
 		init : function()
 		{
 			app.search();
+			app.event.deleteBtn();
 
 		},
 		search: function()
@@ -26,7 +27,7 @@
 						html += '</div>';
 					});
 					$('.object_instagram').empty().html(html);
-					$('.get-more').removeClass('hide');
+					$('.get-more').removeClass('hide').find('a').attr('last-url', data.pagination.next_url);
 					
 					app.event.addBtn();
 
@@ -37,18 +38,40 @@
 				return false;
 			});
 		},
-		addData : function (id)
+		addData : function (element)
 		{
+			var id = element.attr('data-id');
 			$.ajax({
-				url: SITE_URL+'admin/get-data-instagram-by-id/'+id,
+				url: SITE_URL+'admin/get-data-instagram-by-id',
 				dataType: 'json',
+				data: {id: id},
 			})
 			.done(function() {
-				$('.c_'+id).remove();
+				element.parent().remove();
 			})
 			.fail(function() {
 				alert("Ha ocurrido un error en guardar el elemento.");
 			});
+		},
+		deleteData : function (element)
+		{
+			var id = element.attr('data-id');
+			$.ajax({
+				url: SITE_URL+'admin/delete',
+				dataType: 'json',
+				data: {id: id},
+			})
+			.done(function(result) {
+				if (result) {
+					element.parents('tr').remove();
+				}else{
+					alert('Ha ocurrido un problema en eliminar el elemento.')
+				};
+			})
+			.fail(function() {
+				return false;
+			});
+			
 		}
 	};
 	app.event = {} ;
@@ -56,11 +79,22 @@
 		addBtn: function() {
 			$('.add-btn').click(function(event) {
 				event.preventDefault();
-				var id = $(this).attr('data-id');
-				app.addData(id);
+				var e = $(this);
+				app.addData(e);
+			});
+		},
+		getMoreDataInstagram: function(){
+			
+		},
+		deleteBtn: function(){
+			$('.btn-delete').click(function(event) {
+				event.preventDefault();
+				var e = $(this);
+				app.deleteData(e);
+
 			});
 		}
 	};
 	$(document).ready(function(){
 		app.init();
-	});
+	});		

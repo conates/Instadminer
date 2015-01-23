@@ -48,7 +48,7 @@
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
           </ul>
-          <form id="search" class="navbar-form navbar-right">
+          <form id="search_in_site" class="navbar-form navbar-right">
             <input type="text" class="form-control" name="search" placeholder="Search...">
           </form>
         </div>
@@ -61,8 +61,6 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="<?php echo SITE_URL ?>admin">Estadísticas <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo SITE_URL ?>admin/add">Agregar</a></li>
-            <li><a href="<?php echo SITE_URL ?>admin/delete">Borrar</a></li>
-            <li><a href="<?php echo SITE_URL ?>admin/hide">Ocultar</a></li>
             <li><a href="<?php echo SITE_URL ?>admin/export">Exportar</a></li>
           </ul>
         </div>

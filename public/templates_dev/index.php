@@ -54,7 +54,7 @@
                       <?php else: ?>
                         <a data-id="<?php echo $element['id'] ?>" class="btn btn-default btn-show" href="#">Mostrar</a>
                       <?php endif; ?>
-                      <a class="btn btn-danger" href="#">Borrar</a>
+                      <a data-id="<?php echo $element['id'] ?>" class="btn btn-danger btn-delete" href="#">Borrar</a>
                     </td>
                   </tr>
                 <? } ?>

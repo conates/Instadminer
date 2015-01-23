@@ -65,13 +65,19 @@ $app->get('/admin/add',function() use ($app){
     $app->render('add.php');
 });
 
+$app->get('/admin/delete',function() use ($app){
+    $id = $app->request->get('id');
+    echo json_encode(true);
+});
+
 $app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
         $search = $app->request->get('search');
         $data = getDataInstagram($instagram,$search);
         echo json_encode($data);
 });
 
-$app->get('/admin/get-data-instagram-by-id/:id',$JSON,function($id) use ($app,$instagram){
+$app->get('/admin/get-data-instagram-by-id/',$JSON,function() use ($app,$instagram){
+        $id = $app->request->get('id');
         $data = getDataInstagramById($instagram,$id);
         echo json_encode($data);
 });
