@@ -9,6 +9,12 @@
               <div class="col-xs-6 col-sm-3 placeholder">
                 <?php if($element['media_type']=='image'): ?>
                   <img src="<?php echo $element['media_image']; ?>" class="img-responsive" alt="Generic placeholder thumbnail">
+                <?php else: ?>
+                  <video width="321" height="293" controls poster="<?php echo $element['images']; ?>">
+                    <source src="<?php echo $element['media_video']; ?>" type="video/mp4" >
+                    I'm sorry; your browser doesn't support HTML5 video.
+                    <!-- You can embed a Flash player here, to play your mp4 video in older browsers -->
+                  </video>
                 <?php endif; ?>
                 <h4><?php echo $element['username']; ?></h4>
                 <span class="text-muted"><?php echo $element['caption_text']; ?></span>
