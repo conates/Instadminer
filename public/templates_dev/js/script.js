@@ -51,9 +51,10 @@
 			})
 			.done(function() {
 				element.parent().remove();
+				app.flashMessages('success','Se ha agregado un elemento correctamente con ID: '+id+'.');
 			})
 			.fail(function() {
-				alert("Ha ocurrido un error en guardar el elemento.");
+				app.flashMessages('danger','Ha ocurrido un error en guardar el elemento con ID: '+id+'.');
 			});
 		},
 		deleteData : function (element)
@@ -68,8 +69,9 @@
 			.done(function(result) {
 				if (result) {
 					element.parents('tr').remove();
+					app.flashMessages('success','Se ha borrado el elemento con ID: '+id+' correctamente.');
 				}else{
-					alert('Ha ocurrido un problema en eliminar el elemento.')
+					app.flashMessages('danger','Ha ocurrido un problema en eliminar el elemento con '+id+'.');
 				};
 			})
 			.fail(function() {
@@ -89,8 +91,9 @@
 				if (result) {
 					element.removeClass('visible-*-inline-block').addClass('hidden');
 					element.siblings('.btn-hide').removeClass('hidden').addClass('visible-*-inline-block');
+					app.flashMessages('success','El elemento con ID: '+id+' ya es visible.');
 				}else{
-					alert('Ha ocurrido un problema en eliminar el elemento.')
+					app.flashMessages('danger','Ha ocurrido un problema en la visibilidad del elemento con ID: '+id+'.');
 				};
 			})
 			.fail(function() {
@@ -110,13 +113,18 @@
 				if (result) {
 					element.removeClass('visible-*-inline-block').addClass('hidden');
 					element.siblings('.btn-show').removeClass('hidden').addClass('visible-*-inline-block');
+					app.flashMessages('success','El elemento con ID: '+id+' ya no es visible.');
 				}else{
-					alert('Ha ocurrido un problema en eliminar el elemento.')
+					app.flashMessages('danger','Ha ocurrido un problema en la visibilidad del elemento con ID: '+id+'.');
 				};
 			})
 			.fail(function() {
 				return false;
 			});
+		},
+		flashMessages : function(status, message)
+		{
+			$('.messages').empty().html('<p class="bg-'+status+'">'+message+'</p>');
 		}
 	};
 	app.event = {} ;
