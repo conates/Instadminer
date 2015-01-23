@@ -44,24 +44,24 @@
 		{
 			var id = element.attr('data-id');
 			$.ajax({
-				url: SITE_URL+'admin/add',
+				url: SITE_URL+'admin/add-data',
 				dataType: 'json',
 				type: 'POST',
 				data: {id: id},
 			})
-			.done(function() {
+			.done(function(data) {
 				element.parent().remove();
-				app.flashMessages('success','Se ha agregado un elemento correctamente con ID: '+id+'.');
+				app.flashMessages('success','Se ha agregado un elemento correctamente con ID: '+data+'.');
 			})
 			.fail(function() {
-				app.flashMessages('danger','Ha ocurrido un error en guardar el elemento con ID: '+id+'.');
+				app.flashMessages('danger','Ha ocurrido un error en guardar el elemento.');
 			});
 		},
 		deleteData : function (element)
 		{
 			var id = element.attr('data-id');
 			$.ajax({
-				url: SITE_URL+'admin/delete',
+				url: SITE_URL+'admin/delete-data',
 				dataType: 'json',
 				type: 'POST',
 				data: {id: id},
@@ -82,7 +82,7 @@
 		{
 			var id = element.attr('data-id');
 			$.ajax({
-				url: SITE_URL+'admin/show',
+				url: SITE_URL+'admin/show-data',
 				dataType: 'json',
 				type: 'POST',
 				data: {id: id},
@@ -104,7 +104,7 @@
 		{
 			var id = element.attr('data-id');
 			$.ajax({
-				url: SITE_URL+'admin/hide',
+				url: SITE_URL+'admin/hide-data',
 				dataType: 'json',
 				type: 'POST',
 				data: {id: id},

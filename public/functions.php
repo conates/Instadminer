@@ -9,14 +9,14 @@ require 'config.php';
 
 	function deleteData($id)
 	{
-		$data = R::load('instagram',$id); 
+		$data = R::findOne( 'instagram', ' caption_id = ? ', [ $id ]);
 		return R::trash($data);
 
 	}
 
 	function showData($id)
 	{
-		$data = R::findOne( 'instagram', ' id = ? ', [ $id ]);
+		$data = R::findOne( 'instagram', ' caption_id = ? ', [ $id ]);
 		$data->visible ='1';
 		return R::store($data);
 
@@ -24,7 +24,7 @@ require 'config.php';
 
 	function hideData($id)
 	{
-		$data = R::findOne( 'instagram', ' id = ? ', [ $id ]);
+		$data = R::findOne( 'instagram', ' caption_id = ? ', [ $id ]);
 		$data->visible ='0';
 		return R::store($data);
 
@@ -60,8 +60,7 @@ require 'config.php';
 			$insta_data->media_video	= $data->data->videos->standard_resolution->url;
 		}
 		$insta_data->visible	= "1";
-		R::store($insta_data);
-
-		return $insta_data;
+		
+		return R::store($insta_data);
 	}
 ?>

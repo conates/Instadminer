@@ -50,10 +50,10 @@
                     <td><span><?php echo ($element['visible']==1) ? "Si" : "No" ; ?></span></td>
                     <td>
                       <a class="btn btn-success" href="<?php echo $element['link'] ?>" target="_blank">Ver</a>
-                      <a data-id="<?php echo $element['id'] ?>" class="btn btn-default btn-hide <?php echo (($element['visible']==1)) ? 'visible-*-inline-block' : 'hidden' ; ?>" href="#">Ocultar</a>
-                      <a data-id="<?php echo $element['id'] ?>" class="btn btn-default btn-show <?php echo (($element['visible']==0)) ? 'visible-*-inline-block' : 'hidden' ; ?>" href="#">Mostrar</a>
+                      <a data-id="<?php echo $element['caption_id'] ?>" class="btn btn-default btn-hide <?php echo (($element['visible']==1)) ? 'visible-*-inline-block' : 'hidden' ; ?>" href="#">Ocultar</a>
+                      <a data-id="<?php echo $element['caption_id'] ?>" class="btn btn-default btn-show <?php echo (($element['visible']==0)) ? 'visible-*-inline-block' : 'hidden' ; ?>" href="#">Mostrar</a>
                       
-                      <a data-id="<?php echo $element['id'] ?>" class="btn btn-danger btn-delete" href="#">Borrar</a>
+                      <a data-id="<?php echo $element['caption_id'] ?>" class="btn btn-danger btn-delete" href="#">Borrar</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>

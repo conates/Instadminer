@@ -65,23 +65,6 @@ $app->get('/admin/add',function() use ($app){
     $app->render('add.php');
 });
 
-$app->post('/admin/delete',function() use ($app){
-    $id = $app->request->post('id');
-    $data = deleteData($id);
-    echo json_encode(true);
-});
-
-$app->post('/admin/show',function() use ($app){
-    $id = $app->request->post('id');
-    $data = showData($id);
-    echo json_encode(true);
-});
-
-$app->post('/admin/hide',function() use ($app){
-    $id = $app->request->post('id');
-    $data = hideData($id);
-    echo json_encode(true);
-});
 
 $app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
         $search = $app->request->get('search');
@@ -89,10 +72,27 @@ $app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
         echo json_encode($data);
 });
 
-$app->post('/admin/add',$JSON,function() use ($app,$instagram){
+$app->post('/admin/add-data',$JSON,function() use ($app,$instagram){
         $id = $app->request->post('id');
         $data = getDataInstagramById($instagram,$id);
         echo json_encode($data);
+});
+$app->post('/admin/delete-data',$JSON,function() use ($app){
+    $id = $app->request->post('id');
+    $data = deleteData($id);
+    echo json_encode(true);
+});
+
+$app->post('/admin/show-data',$JSON,function() use ($app){
+    $id = $app->request->post('id');
+    $data = showData($id);
+    echo json_encode(true);
+});
+
+$app->post('/admin/hide-data',$JSON,function() use ($app){
+    $id = $app->request->post('id');
+    $data = hideData($id);
+    echo json_encode(true);
 });
 
 
