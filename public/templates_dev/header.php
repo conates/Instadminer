@@ -57,7 +57,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-1 col-md-offset-0 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="<?php echo SITE_URL ?>admin">Estadísticas <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo SITE_URL ?>admin/add">Agregar</a></li>

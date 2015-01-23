@@ -4,6 +4,8 @@
 		{
 			app.search();
 			app.event.deleteBtn();
+			app.event.showBtn();
+			app.event.hideBtn();
 
 		},
 		search: function()
@@ -73,7 +75,48 @@
 			.fail(function() {
 				return false;
 			});
-			
+		},
+		showData : function(element)
+		{
+			var id = element.attr('data-id');
+			$.ajax({
+				url: SITE_URL+'admin/show',
+				dataType: 'json',
+				type: 'POST',
+				data: {id: id},
+			})
+			.done(function(result) {
+				if (result) {
+					element.removeClass('visible-*-inline-block').addClass('hidden');
+					element.siblings('.btn-hide').removeClass('hidden').addClass('visible-*-inline-block');
+				}else{
+					alert('Ha ocurrido un problema en eliminar el elemento.')
+				};
+			})
+			.fail(function() {
+				return false;
+			});
+		},
+		hideData : function(element)
+		{
+			var id = element.attr('data-id');
+			$.ajax({
+				url: SITE_URL+'admin/hide',
+				dataType: 'json',
+				type: 'POST',
+				data: {id: id},
+			})
+			.done(function(result) {
+				if (result) {
+					element.removeClass('visible-*-inline-block').addClass('hidden');
+					element.siblings('.btn-show').removeClass('hidden').addClass('visible-*-inline-block');
+				}else{
+					alert('Ha ocurrido un problema en eliminar el elemento.')
+				};
+			})
+			.fail(function() {
+				return false;
+			});
 		}
 	};
 	app.event = {} ;
@@ -93,6 +136,22 @@
 				event.preventDefault();
 				var e = $(this);
 				app.deleteData(e);
+
+			});
+		},
+		showBtn: function(){
+			$('.btn-show').click(function(event) {
+				event.preventDefault();
+				var e = $(this);
+				app.showData(e);
+
+			});
+		},
+		hideBtn: function(){
+			$('.btn-hide').click(function(event) {
+				event.preventDefault();
+				var e = $(this);
+				app.hideData(e);
 
 			});
 		}

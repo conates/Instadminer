@@ -71,6 +71,18 @@ $app->post('/admin/delete',function() use ($app){
     echo json_encode(true);
 });
 
+$app->post('/admin/show',function() use ($app){
+    $id = $app->request->post('id');
+    $data = showData($id);
+    echo json_encode(true);
+});
+
+$app->post('/admin/hide',function() use ($app){
+    $id = $app->request->post('id');
+    $data = hideData($id);
+    echo json_encode(true);
+});
+
 $app->get('/admin/get-data-instagram',$JSON,function() use ($app,$instagram){
         $search = $app->request->get('search');
         $data = getDataInstagram($instagram,$search);

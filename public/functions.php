@@ -9,8 +9,24 @@ require 'config.php';
 
 	function deleteData($id)
 	{
-		$data = R::load('instagram',$id); //Retrieve
+		$data = R::load('instagram',$id); 
 		return R::trash($data);
+
+	}
+
+	function showData($id)
+	{
+		$data = R::findOne( 'instagram', ' id = ? ', [ $id ]);
+		$data->visible ='1';
+		return R::store($data);
+
+	}
+
+	function hideData($id)
+	{
+		$data = R::findOne( 'instagram', ' id = ? ', [ $id ]);
+		$data->visible ='0';
+		return R::store($data);
 
 	}
 

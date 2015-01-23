@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-9 col-sm-offset-3 col-md-11 col-md-offset-1 main">
           <h1 class="page-header">Estadísticas</h1>
           <h3>Últimos 4 elementos</h3>
 
@@ -31,7 +31,7 @@
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($all_data as $key => $element) { ?>
+                <?php foreach ($all_data as $key => $element): ?>
                   <tr>
                     <td><?php echo $element['id'] ?></td>
                     <td><?php echo $element['user_id'] ?></td>
@@ -49,15 +49,13 @@
                     <td><span><?php echo ($element['visible']==1) ? "Si" : "No" ; ?></span></td>
                     <td>
                       <a class="btn btn-success" href="<?php echo $element['link'] ?>" target="_blank">Ver</a>
-                      <?php if ($element['visible']==1) :?>
-                        <a data-id="<?php echo $element['id'] ?>" class="btn btn-default btn-hide" href="#">Ocultar</a>
-                      <?php else: ?>
-                        <a data-id="<?php echo $element['id'] ?>" class="btn btn-default btn-show" href="#">Mostrar</a>
-                      <?php endif; ?>
+                      <a data-id="<?php echo $element['id'] ?>" class="btn btn-default btn-hide <?php echo (($element['visible']==1)) ? 'visible-*-inline-block' : 'hidden' ; ?>" href="#">Ocultar</a>
+                      <a data-id="<?php echo $element['id'] ?>" class="btn btn-default btn-show <?php echo (($element['visible']==0)) ? 'visible-*-inline-block' : 'hidden' ; ?>" href="#">Mostrar</a>
+                      
                       <a data-id="<?php echo $element['id'] ?>" class="btn btn-danger btn-delete" href="#">Borrar</a>
                     </td>
                   </tr>
-                <? } ?>
+                <?php endforeach; ?>
               </tbody>
             </table>
           </div>
