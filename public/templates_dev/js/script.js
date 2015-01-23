@@ -19,19 +19,10 @@
 					data: formData,
 				})
 				.done(function(data) {
-					html = '';
-					$.each(data.data, function(index, object) {
-						html += '<div class="col-xs-6 col-sm-3 placeholder c_'+object.id+'">';
-							html += '<a data-id="'+object.id+'" class="btn btn-success add-btn" href="http://google.cl" role="button">Agregar</a>';
-							html += '<img src="'+object.images.low_resolution.url+'" class="img-responsive" alt="Generic placeholder thumbnail">';
-							html += '<h4>'+object.user.username+'</h4>';
-							html += '<span class="text-muted">'+object.caption.text+'</span>';
-						html += '</div>';
-					});
-					$('.object_instagram').empty().html(html);
-					$('.get-more').removeClass('hide').find('a').attr('last-url', data.pagination.next_url);
+					app.contentInstagram(data);
 					
 					app.event.addBtn();
+					app.event.getMoreBtnInstagram();
 
 				})
 				.fail(function(data) {
@@ -125,6 +116,21 @@
 		flashMessages : function(status, message)
 		{
 			$('.messages').empty().html('<p class="bg-'+status+'">'+message+'</p>');
+		},
+		contentInstagram : function(data)
+		{	
+					html = '';
+					$.each(data.data, function(index, object) {
+						html += '<div class="col-xs-6 col-sm-3 placeholder c_'+object.id+'">';
+							html += '<a data-id="'+object.id+'" class="btn btn-success add-btn" href="http://google.cl" role="button">Agregar</a>';
+							html += '<img src="'+object.images.low_resolution.url+'" class="img-responsive" alt="Generic placeholder thumbnail">';
+							html += '<h4>'+object.user.username+'</h4>';
+							if (object.caption != null)
+								html += '<span class="text-muted">'+object.caption.text+'</span>';
+						html += '</div>';
+					});
+					$('.object_instagram').empty().prepend(html);
+					$('.get-more').removeClass('hide').find('a').attr('last-url', data.pagination.next_url);
 		}
 	};
 	app.event = {} ;
@@ -161,6 +167,25 @@
 				var e = $(this);
 				app.hideData(e);
 
+			});
+		},
+		getMoreBtnInstagram : function()
+		{
+
+			$('.get-more-btn').click(function(event) {
+				event.preventDefault();
+				var element = $(this);
+				$.ajax({
+					url: element.attr('last-url'),
+					dataType: 'json',
+				})
+				.done(function(data) {
+					app.contentInstagram(data);
+				})
+				.fail(function() {
+					app.flashMessages('warning','Ha ocurrido un error en traer la data de instagram.');
+				});
+				
 			});
 		}
 	};
