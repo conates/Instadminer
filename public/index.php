@@ -50,13 +50,21 @@ $app->get('/',function() use ($app){
     $app->render('login.html');
 });
 
-$app->get('/admin',function() use ($app){
+$app->get('/admin/(:page)',function($page=1) use ($app){
 
-    $last_four = getData(4);
-    $all_data = getData();
-    $app->render('index.php',array(
+    $last_four = getData(1,4);
+    $all_data = getData($page,10);
+
+
+    $instagram  = R::count('instagram');
+    $totalPages = ceil($instagram/10);
+
+    $paginator = array('totalPages'=>$totalPages);
+
+    $app->render('admin/index.php',array(
         'last_four'=>$last_four,
-        'all_data'=>$all_data)
+        'all_data'=>$all_data,
+        'paginator' => $paginator)
     );
 });
 

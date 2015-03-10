@@ -1,9 +1,9 @@
 <?php 
 require 'config.php';
 
-	function getData($limit = 10)
+	function getData($page = 1,$limit=10)
 	{
-		$data = R::find('instagram','ORDER BY created_time DESC limit :limit',['limit'=> $limit]);
+		$data = R::find('instagram','ORDER BY created_time DESC limit '.(($page-1)*$limit).', '.$limit);
 		return R::exportAll($data);
 	}
 

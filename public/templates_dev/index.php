@@ -66,5 +66,25 @@
               </tbody>
             </table>
           </div>
+          <?php if ($paginator['totalPages']>1):?>
+            <div class="paginator">
+              <ul class="pagination">
+                <li><a href="<?php echo SITE_URL ?>admin/"><<</a></li>
+                <?php 
+                  for ($i=1; $i <= $paginator['totalPages']; $i++):
+                ?>
+                    <li><a href="<?php echo SITE_URL ?>admin/<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                <?php
+                  if ($i>=1) {
+                    echo '<li><a href="#">...</a></li>';
+                    break;
+                  }
+                  endfor; 
+                ?>
+                <li><a href="<?php echo SITE_URL ?>admin/<?php echo $paginator['totalPages']; ?>">>></a></li>
+
+              </ul>
+            </div>
+          <?php endif; ?>
         </div>
 <?php include 'footer.php'; ?>
